@@ -1,0 +1,24 @@
+- config:
+    - testset: "Basic tests"
+    - timeout: 100  # Increase timeout from the default 10 seconds
+- test: 
+    - name: "Get URL"
+    - url: "/prod/root/"
+    - method: 'GET'
+- test: # create entity by POST
+    - name: "Create URL"
+    - url: "/prod/root/"
+    - method: "POST"
+    - body: '{"linkID": 5, "url": "domain.com" }'
+    - headers: {Content-Type: application/json}
+- test: # create entity by PUT
+    - name: "Update URL"
+    - url: "/prod/root/"
+    - method: "PUT"
+    - body: '{"linkID": 1, "url": "music.com"}'
+    - headers: {'Content-Type': 'application/json'}
+- test: # delete entity by DELETE
+    - name: "Delete URL"
+    - url: "/prod/root/"
+    - method: 'DELETE'
+    - body: '{"linkID": 5}'
